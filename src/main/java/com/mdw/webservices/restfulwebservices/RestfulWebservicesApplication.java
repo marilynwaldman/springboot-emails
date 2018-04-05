@@ -92,52 +92,9 @@ public class RestfulWebservicesApplication implements CommandLineRunner  {
 			}
 		}
 
-
-		// Cleanup Database tables
-		categoryRepository.deleteAllInBatch();
-		eventRepository.deleteAllInBatch();
 		senderRepository.save(sender);
-		// ======================================
-
-		Category category1 = new Category("Hibernate One-To-Many Mapping Example",
-				"Learn how to use one to many mapping in hibernate"
-		);
-
-		Event event1 = new Event("name", "description", "source", "author", new Date());
-        Event event2 = new Event("name2", "description2", "source2", "author", new Date());
-
-		event1.setCategory(category1);
-		category1.getEvents().add(event1);
-
-		event2.setCategory(category1);
-		category1.getEvents().add(event2);
-
-
-		categoryRepository.save(category1);
 
 		// ======================================
-
-
-		Sender sender1 = new Sender("Do Do doggie", "mdwaldman22@gmail.com");
-
-		Email email1 = new Email( new Date(), new Date(), "emaiid",
-				"Marilyn Waldman", "this is the subject", "lll", "folder");
-
-		email1.setSender(sender1);
-		sender1.getEmails().add(email1);
-
-
-		Email email2 = new Email( new Date(), new Date(), "emaiid2",
-				"Marilyn Waldman", "this is the subject2", "lll", "folder2");
-
-		email2.setSender(sender1);
-		sender1.getEmails().add(email2);
-
-		senderRepository.save(sender1);
-
-
-
-
 
 
 	}
