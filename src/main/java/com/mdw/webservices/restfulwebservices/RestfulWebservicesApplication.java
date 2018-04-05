@@ -1,8 +1,6 @@
 package com.mdw.webservices.restfulwebservices;
 
-import com.mdw.webservices.restfulwebservices.category.CategoryRepository;
-import com.mdw.webservices.restfulwebservices.event.Event;
-import com.mdw.webservices.restfulwebservices.event.EventRepository;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.transaction.Transactional;
@@ -17,8 +15,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.mdw.webservices.restfulwebservices.category.Category;
-import com.mdw.webservices.restfulwebservices.event.Event;
 
 import com.mdw.webservices.restfulwebservices.Sender.SenderRepository;
 import com.mdw.webservices.restfulwebservices.Sender.Sender;
@@ -35,12 +31,6 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class RestfulWebservicesApplication implements CommandLineRunner  {
-
-	@Autowired
-	private CategoryRepository categoryRepository;
-
-	@Autowired
-	private EventRepository eventRepository;
 
 	@Autowired
 	private SenderRepository senderRepository;

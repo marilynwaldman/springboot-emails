@@ -2,6 +2,7 @@ package com.mdw.webservices.restfulwebservices.exception;
 
 import java.util.Date;
 
+import com.mdw.webservices.restfulwebservices.Sender.SenderNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.mdw.webservices.restfulwebservices.article.ArticleNotFoundException;
+
 
 @ControllerAdvice
 @RestController
@@ -25,8 +26,8 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(ArticleNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(ArticleNotFoundException ex, WebRequest request) {
+    @ExceptionHandler(SenderNotFoundException.class)
+    public final ResponseEntity<Object> handleUserNotFoundException(SenderNotFoundException ex, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
                 request.getDescription(false));
         return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
